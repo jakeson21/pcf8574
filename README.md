@@ -1,11 +1,11 @@
 ```bash
 make
-sudo i2cdetect -y -a 1 # At 0x20
+sudo i2cdetect -y -a 1 # pcf8574 at 0x20
 gpioinfo
 sudo dtoverlay pcf8574.dtbo
 sudo i2cdetect -y -a 1 # UU at 0x20
 gpioinfo # notice gpiochip3 - 8 lines:
-
+# To remove pcf8574
 sudo dtoverlay -r pcf8574
 ```
 
