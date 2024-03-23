@@ -1,0 +1,23 @@
+/dts-v1/;
+/plugin/;
+/ {
+	compatible = "brcm,bcm2835";
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			pcf8574: gpio@20 {
+				compatible = "nxp,pcf8574";
+				reg = <0x20>;
+                gpio-controller;
+                #gpio-cells = <2>;
+				// interrupt-parent = <&irqpin2>;
+                // interrupts = <3 0>;
+                // interrupt-controller;
+                // #interrupt-cells = <2>;
+			};
+		};
+	};
+};
