@@ -30,6 +30,8 @@ while True:
 
     # bus.write_i2c_block_data(address, msg_off, msg_on_off) # Achieves ~3kHz
 
-    bus.write_byte_data(address, msg_on, msg_off) # Achieves ~2kHz
+    # bus.write_byte_data(address, msg_on, msg_off) # Achieves ~2kHz
 
-    # bus.write_byte(address, msg_off)
+    msg_off += 1
+    time.sleep(0.050)
+    bus.write_byte(address, 0xFF ^ 0b10101010)
